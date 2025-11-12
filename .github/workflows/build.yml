@@ -26,10 +26,10 @@ jobs:
       with:
         arch: amd64
 
-    - name: Install .NET Framework 4.0 Targeting Pack
+    - name: Install .NET Framework 4.5.2 Developer Pack (includes 4.0 targeting)
       shell: pwsh
       run: |
-        choco install netfx-4.0-devpack -y
+        choco install netfx-4.5.2-devpack -y
 
     - name: Restore NuGet packages
       run: nuget restore All.sln
