@@ -15,17 +15,22 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
 
-    - name: Setup MSBuild
+    - name: Add MSBuild to PATH
       uses: microsoft/setup-msbuild@v2
 
     - name: Setup NuGet
       uses: NuGet/setup-nuget@v2
 
+    - name: Add Visual Studio C++ tools
+      uses: ilammy/msvc-dev-cmd@v1
+      with:
+        arch: amd64
+
     - name: Restore NuGet packages
       run: nuget restore All.sln
 
     - name: Build solution
-      run: msbuild All.sln /p:Configuration=Debug /p:Platform="Any CPU" /t:Rebuild /p:DefineConstants="TRACE;DEBUG;CODE_ANALYSIS;_SILENCE_STDEXT_HASH_DEPRECATION_WARNINGS"
+      run: msbuild All.sln /p:Configuration=Debug /p:Platform="Any CPU" /t:Rebuild /p:DefineConstants="TRACE;DEBUG;CODE_ANALYSIS;_SILENCE_STDEXT_HASH_DEPRECATION_WARNINGS" /maxcpucount
 
     - name: Upload build artifacts
       uses: actions/upload-artifact@v4
