@@ -26,10 +26,21 @@ jobs:
       with:
         arch: amd64
 
-    - name: Install .NET Framework 4.5.2 Developer Pack (includes 4.0 targeting)
+    - name: Install .NET Framework targeting packs
       shell: pwsh
       run: |
-        choco install netfx-4.5.2-devpack -y
+        # Try installing via Chocolatey's dotnet4.6.2 developer pack which should include 4.0
+        choco install netfx-4.6.2-devpack -y
+
+        # If that doesn't work, download and install .NET 4.0 Multi-Targeting Pack directly
+        $url = "https://download.microsoft.com/download/4/3/5/43508FFC-B0BD-4949-8B8C-FFFF4A9D7F6A/NDP40-KB2495593-x86-x64-AllOS-ENU.exe"
+        $installer = "$env:TEMP\NDP40-TargetingPack.exe"
+        try {
+          Invoke-WebRequest -Uri $url -OutFile $installer -ErrorAction Stop
+          Start-Process -FilePath $installer -Args "/quiet /norestart" -Wait -NoNewWindow
+        } catch {
+          Write-Host "Direct download failed, continuing..."
+        }
 
     - name: Restore NuGet packages
       run: nuget restore All.sln
