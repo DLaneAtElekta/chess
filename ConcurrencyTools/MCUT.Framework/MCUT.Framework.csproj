@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Microsoft.Concurrency.TestTools.UnitTesting</RootNamespace>
     <AssemblyName>Microsoft.Concurrency.UnitTestingFramework</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SccProjectName>%24/ChessTesting/ConcurrencyTools/MCUT.Framework</SccProjectName>
     <SccLocalPath>.</SccLocalPath>

@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Microsoft.Concurrency.TestTools.TaskoMeter</RootNamespace>
     <AssemblyName>Microsoft.Concurrency.Taskometer</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
     <SccProjectName>%24/ChessTesting/ConcurrencyTools/MCUT.Taskometer</SccProjectName>

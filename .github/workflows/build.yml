@@ -1,0 +1,44 @@
+name: Build
+
+on:
+  push:
+    branches: [ main, master, "claude/**" ]
+  pull_request:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Add MSBuild to PATH
+      uses: microsoft/setup-msbuild@v2
+
+    - name: Setup NuGet
+      uses: NuGet/setup-nuget@v2
+
+    - name: Add Visual Studio C++ tools
+      uses: ilammy/msvc-dev-cmd@v1
+      with:
+        arch: amd64
+
+    - name: Restore NuGet packages
+      run: nuget restore All.sln
+
+    - name: Build solution
+      shell: cmd
+      run: msbuild All.sln /p:Configuration=Debug /p:Platform="Any CPU" /t:Rebuild /p:DefineConstants="TRACE;DEBUG;CODE_ANALYSIS;_SILENCE_STDEXT_HASH_DEPRECATION_WARNINGS" /maxcpucount
+
+    - name: Upload build artifacts
+      uses: actions/upload-artifact@v4
+      if: success()
+      with:
+        name: chess-build-output
+        path: |
+          bin/
+          debug/
+        retention-days: 7
