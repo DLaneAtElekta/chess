@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Microsoft.Concurrency.TestTools.UnitTesting.RegressionTests</RootNamespace>
     <AssemblyName>MCUT.Framework.RegressionTests</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SccProjectName>%24/ChessTesting/ConcurrencyTools/RegressionTesting/MCUT.Framework</SccProjectName>
     <SccLocalPath>.</SccLocalPath>

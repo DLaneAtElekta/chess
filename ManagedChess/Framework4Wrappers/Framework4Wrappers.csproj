@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Microsoft.ManagedChess.Framework4Wrappers</RootNamespace>
     <AssemblyName>Microsoft.ManagedChess.Framework4Wrappers</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SccProjectName>%24/ChessTesting/ManagedChess/Framework4Wrappers</SccProjectName>
     <SccLocalPath>.</SccLocalPath>
